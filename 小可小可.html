@@ -1,61 +1,51 @@
 <html>
     <head>
         <title>王熠可</title>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="css/style.css">
         <meta charset="UTF-8">
+        <!-- 添加 JS 文件引用 -->
+        <script src="./js/小可图片数据1.js"></script>
+        <script src="./js/小可视频数据1.js"></script>
+        <script>
+            window.onload = function() {
+                
+                // 添加视频元素
+                const videoContainer = document.getElementById('video-container');
+                const randomVideoIndex = Math.floor(Math.random() * 小可视频数组.length);
+                const randomVideo = 小可视频数组[randomVideoIndex];
+                
+                const videoElement = document.createElement('video');
+                videoElement.src = randomVideo;
+                videoElement.controls = true;
+                videoElement.autoplay = false; // 添加自动播放选项
+                videoElement.style.maxWidth = '100%';
+                videoElement.style.marginTop = '20px';
+                videoElement.style.display = 'block'; // 确保视频显示为块级元素
+                
+                // 添加错误处理
+                videoElement.onerror = function() {
+                    console.error('视频加载失败：', videoElement.error);
+                    videoContainer.innerHTML += '<p style="color: red;">视频加载失败，请检查文件路径是否正确。</p>';
+                };
+
+                videoContainer.appendChild(videoElement);
+            }
+        </script>
+        <style>
+            body {
+                color: white; /* 确保文字在图片背景上清晰可见 */
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* 添加文字阴影提高可读性 */
+            }
+        </style>
     </head>
     <body>
         <h1>大家好，我是可可爱爱的小可</h1>
         
-        <div class="photo-container">
-            <img src="./小可出生.png" alt="小可的照片" width="400">
-            <div class="photo-description">
-                你好呀！<br>
-                我是2024年3月7日刚来世界的小孩，<br>
-                呼吸是甜的，阳光痒痒的。<br>
-                妈妈的声音是毛毯，爸爸的胡子蹭我的脸，像小草刚发芽。<br>
-                天上掉下来好多圆圆的光，叶子在鼓掌，<br>
-                门缝溜进的风悄悄亲我脚趾——<br>
-                哦！原来这就是"活着"啊。
-            </div>
-        </div>
-
-        <div class="photo-container">
-            <img src="./小可1.png" alt="小可的照片" width="400">
-            <div class="photo-description">
-                时光匆匆，我满月啦<br>
-                我现在有一个月咯，我的手掌会捏住爸爸的手指，里三层外三层被包的可严实了。奶嘴真好吃，嘿嘿
-            </div>
-        </div>
-        <p style="text-align: center;">
-            <img src="./小可2.png" alt="小可的照片" width="400"><br>
-            嘿嘿嘿，2个月啦啦啦。肉乎乎的小脸蛋可好rua了。爸爸就很喜欢~<br>
-            靠在爸爸的腿上，像是依靠了一座大山，安心哎！<br>
-            我会看东西了哦<br>
-        </p>
-        <p><img src="./小可3.png" alt="小可的照片" width="400"><br><p></p>
-                <br>哎呀又要换尿不湿了，好烦好烦
-                    什么时候才能自己换尿不湿呢？
-                    三月咯哦<br>
-            <p><img src="./小可4.png" alt="小可的照片" width="400"><br><p></p>
-                <br>四月了呢，今天爸爸带我去河边玩，突然就刮起了大风啊，冷死啦。还好爸爸把我塞在肚肚里，很暖和，向妈妈一样<br>
-            <p><img src="./小可5.png" alt="小可的照片" width="400"><br><p></p>
-            <br>五月天啊，好热好热。妈妈买的小包屁有点累屁屁，我更好看咯啦啦啦<br>
-            <p><img src="./小可6.png" alt="小可的照片" width="400"><br><p></p>
-            <br>哎呀今天妈妈好累，我自己在床上玩。一张一张又一张，完蛋辣被纸淹没不知所措<br>
-            <p><img src="./小可7.png" alt="小可的照片" width="400"><br><p></p>
-            <br>七月的鱼，八月的风啦啦啦，偶尔听到的音乐真好听~我也七月了，来张美美的自拍<br>
-            <p><img src="./小可8.png" alt="小可的照片" width="400"><br><p></p>
-            <br>可恶！八月大的小可被放在婴儿椅上看爸爸妈妈吃美食，我也想吃啊，可惜没有牙牙<br>
-            <p><img src="./小可9.png" alt="小可的照片" width="400"><br><p></p>
-            <br>九月，衣服穿的厚了一点点。我坐的好不好啊，夸夸我啊嘿嘿！<br>
-            <p><img src="./小可10.png" alt="小可的照片" width="400"><br><p></p>
-            <br>啦啦啦，我是看别人吹泡泡的小行家。开心，今天来体育场玩么，人多多的<br>
-            <p><img src="./小可11.png" alt="小可的照片" width="400"><br><p></p>
-            <br>小可十一岁咯，妈妈带我来看三姑，我愈加帅气漂亮啦<br>
-            <p><img src="./小可12.png" alt="小可的照片" width="400"><br><p></p>
-            <br>啊啊啊终于一岁了，可得多吃些长身体，我干了这一盘你随意哈哈
-        </p>
+        <!-- 添加一个容器用于 JS 动态渲染照片 -->
+        <div id="video-container"></div>
+        <div id="image-text-container"></div>
+        <!-- <div id="photo-container"></div>
+        <div id="text-container"></div> -->
         
         <!-- 返回主页链接 -->
         <a href="index.html" class="home-link">返回主页</a>
